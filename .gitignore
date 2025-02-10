@@ -1,0 +1,55 @@
+# Archivos y carpetas del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de configuración de IDEs/editores de texto
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Archivos de configuración del entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos relacionados con XAMPP/WAMP
+xamppfiles/
+*.log
+
+# Configuración de bases de datos locales
+*.sql
+*.sqlite
+*.db
+
+# Directorios de caché y temporales
+cache/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Librerías y dependencias externas (Composer, npm)
+vendor/
+node_modules/
+
+# Archivos de sesión PHP
+sess_*
+
+# Archivos de configuración y conexión sensibles
+conexion.php
+
+# Archivos de respaldo automáticos
+*.bak
+*.old
+*.swp
+*.swo
+*~
+
+# Archivos de salida o generados automáticamente
+*.out
+*.log
+
+# Carpeta de subidas (si aplicas para documentos o imágenes)
+uploads/
