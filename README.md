@@ -37,7 +37,7 @@ Este proyecto es un sistema de gestión de préstamos de libros para la **Univer
 Si estás usando Git:
 
 git clone https://github.com/Ed-HV/Biblioteca-V.1.0.0.git
-cd Biblioteca-V.1.0.0.
+cd Biblioteca-V.1.0.0
 
 2. Configuración del Entorno
 Asegúrate de tener XAMPP instalado para correr el servidor local.
@@ -70,15 +70,13 @@ if ($conn->connect_error) {
 5. Ejecutar el Proyecto
 
 Abre tu navegador y visita:
+http://localhost/Biblioteca-V.1.0.0/user/login.php  # Para usuarios
+http://localhost/Biblioteca-V.1.0.0/admin/agregar_libro.php  # Para administradores
 
-http://localhost/sistema-prestamo-libros/usuario/login.php  # Para usuarios
-http://localhost/sistema-prestamo-libros/admin/agregar_libro.php  # Para administradores
-🗄️ Estructura del Proyecto
-bash
-Copiar
-Editar
+
+Estructura del Proyecto
+
 /admin
-  ├── dashboard.php
   ├── agregar_libro.php
   ├── editar_libro.php
   ├── eliminar_libro.php
@@ -86,7 +84,9 @@ Editar
   ├── registrar_devolucion.php
   ├── gestionar_multas.php
   ├── reportes.php
+  ├── notificaciones.php
   └── conexion.php
+
 
 /usuario
   ├── dashboard.php
