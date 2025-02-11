@@ -2,7 +2,7 @@
 include 'conexion.php';
 session_start();
 
-// Verificar si el usuario ha iniciado sesión
+
 if (!isset($_SESSION['id_usuario'])) {
     header('Location: login.php');
     exit();
@@ -17,12 +17,12 @@ $nombre_usuario = $_SESSION['nombre'];
     <meta charset="UTF-8">
     <title>Dashboard del Usuario - Biblioteca</title>
     
-    <link rel="stylesheet" href="assets/css/dashboardStyle.css"> 
+    <link rel="" href=""> 
 </head>
 <body>
     <div class="d-flex" id="wrapper">
 
-        <!-- Sidebar del usuario -->
+        
         <div class="bg-dark border-end" id="sidebar-wrapper">
             <div class="sidebar-heading text-white p-3">📚 Mi Biblioteca</div>
             <div class="list-group list-group-flush">
@@ -35,15 +35,15 @@ $nombre_usuario = $_SESSION['nombre'];
             </div>
         </div>
 
-        <!-- Contenido principal -->
+        
         <div id="page-content-wrapper" class="p-4">
             <h3>¡Bienvenido, <?php echo htmlspecialchars($nombre_usuario); ?>! 🎉</h3>
             <p>Selecciona una opción del menú para comenzar.</p>
             <div id="content-area"></div>
         </div>
-
     </div>
 
     <script src="assets/js/scripts.js"></script>
+
 </body>
 </html>
