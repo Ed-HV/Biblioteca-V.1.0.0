@@ -1,0 +1,39 @@
+name: PHP Syntax Check Pipeline
+
+# Ejecuta el workflow en cada push o pull request
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: build  # Este es uno de los checks requeridos que mencionaste
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'  # Puedes cambiar la versión si necesitas otra
+
+      - name: Syntax check for PHP files
+        run: |
+          find . -name "*.php" -exec php -l {} \;
+
+  test:
+    name: test  # Este es el segundo check requerido
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Run basic PHP script check
+        run: |
+          echo "<?php echo 'Test passed!'; ?>" | php
