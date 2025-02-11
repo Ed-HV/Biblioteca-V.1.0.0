@@ -5,6 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: build
+
     runs-on: ubuntu-latest
 
     steps:
@@ -20,8 +21,10 @@ jobs:
         run: | 
          find . -name "*.php" -exec php -l {} \;
 
+
   test:
     name: test  
+    
     runs-on: ubuntu-latest
 
     steps:
