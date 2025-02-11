@@ -1,0 +1,25 @@
+name: Run PHP Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'  # Puedes cambiar la versión de PHP si es necesario
+          extensions: mbstring, intl, mysqli  # Agrega aquí las extensiones que necesites
+
+      - name: Install dependencies
+        run: |
+          composer install  # Asegúrate de tener un composer.json en tu proyecto
+
+      - name: Run tests
+        run: |
+          ./vendor/bin/phpunit  # Ejecuta PHPUnit, asegúrate de que esté instalado
