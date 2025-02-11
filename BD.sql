@@ -1,3 +1,4 @@
+```sql
 -- Creación de la base de datos
 CREATE DATABASE IF NOT EXISTS sistema_prestamo_libros;
 USE sistema_prestamo_libros;
@@ -170,3 +171,4 @@ DELIMITER ;
 
 -- Pagar una multa
 -- CALL pagar_multa(1);
+```
