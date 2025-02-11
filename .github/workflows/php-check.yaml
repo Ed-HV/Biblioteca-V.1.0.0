@@ -1,4 +1,4 @@
-name: PHP Check
+name: php-check
 
 on: [push, pull_request]
 
