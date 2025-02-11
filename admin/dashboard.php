@@ -14,7 +14,7 @@
 <body>
     <div class="d-flex" id="wrapper">
 
-        <!-- Sidebar -->
+        
         <div class="bg-dark border-end" id="sidebar-wrapper">
             <div class="sidebar-heading text-white p-3">📚 Biblioteca Admin</div>
             <div class="list-group list-group-flush">
@@ -28,9 +28,9 @@
                 <a href="dashboard.php?modulo=notificaciones" class="list-group-item list-group-item-action bg-dark text-white">Notificaciones</a>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
+        
 
-        <!-- Page Content -->
+        
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
@@ -57,15 +57,11 @@
                 ?>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-
-    <!-- Bootstrap JS y dependencias -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Script personalizado -->
+      </div>
+ 
+    
    <script src="assets/js/scripts.js"></script> 
-    <!-- Script para el menú -->
+    
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const wrapper = document.getElementById('wrapper');
