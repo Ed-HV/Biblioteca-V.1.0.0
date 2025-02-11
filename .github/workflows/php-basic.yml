@@ -1,11 +1,21 @@
 name: PHP Syntax Check Pipeline
 
+
 on: [push, pull_request]
 
 jobs:
 
   build:
-    name: build  
+    name: build
+    
+
+
+
+
+
+
+
+
     runs-on: ubuntu-latest
 
     steps:
@@ -15,14 +25,20 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
+
           php-version: '8.1' 
+
+    
+
 
       - name: Syntax check for PHP files
         run: |
           find . -name "*.php" -exec php -l {} \;
 
   test:
+
     name: test  
+
     runs-on: ubuntu-latest
 
     steps:
