@@ -35,24 +35,23 @@ Este proyecto es un sistema de gestión de préstamos de libros para la **Univer
 
 ### 1. Clonar el Repositorio
 Si estás usando Git:
-
-git clone https://github.com/Ed-HV/Biblioteca-V.1.0.0.git
-cd Biblioteca-V.1.0.0
-
+```php
+- git clone https://github.com/Ed-HV/Biblioteca-V.1.0.0.git
+- cd Biblioteca-V.1.0.0
+```
 2. Configuración del Entorno
-Asegúrate de tener XAMPP instalado para correr el servidor local.
-Coloca el proyecto en la carpeta htdocs de XAMPP.
+- Asegúrate de tener XAMPP instalado para correr el servidor local.
+- Coloca el proyecto en la carpeta htdocs de XAMPP.
 
 3. Configurar la Base de Datos
-
-Abre phpMyAdmin desde tu servidor local (http://localhost/phpmyadmin).
-Crea una nueva base de datos llamada sistema_prestamo_libros.
-Importa el archivo SQL que viene incluido.
+- Abre phpMyAdmin desde tu servidor local (http://localhost/phpmyadmin).
+- Crea una nueva base de datos llamada sistema_prestamo_libros.
+- Importa el archivo SQL que viene incluido.
 
 4. Configuración de Conexión a la Base de Datos
+-Edita el archivo conexion.php con tus credenciales de base de datos:
 
-Edita el archivo conexion.php con tus credenciales de base de datos:
-
+```php
 <?php
 $host = 'localhost';
 $user = 'root';         // Cambia si tienes un usuario diferente
@@ -66,16 +65,17 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 ?>
-
+```
 5. Ejecutar el Proyecto
 
 Abre tu navegador y visita:
-http://localhost/Biblioteca-V.1.0.0/user/login.php  # Para usuarios
-http://localhost/Biblioteca-V.1.0.0/admin/agregar_libro.php  # Para administradores
+
+- http://localhost/Biblioteca-V.1.0.0/user/login.php  # Para usuarios
+- http://localhost/Biblioteca-V.1.0.0/admin/agregar_libro.php  # Para administradores
 
 
-Estructura del Proyecto
-
+## Estructura del Proyecto
+```php
 /admin
   ├── agregar_libro.php
   ├── editar_libro.php
@@ -97,13 +97,14 @@ Estructura del Proyecto
   ├── notificaciones.php
   ├── login.php
   └── conexion.php
-
+```
 ## Funcionalidades Clave
 - Límite de Préstamos: Un usuario puede tener un máximo de 3 libros en préstamo simultáneamente.
 - Renovaciones: Los préstamos pueden renovarse hasta 3 veces; luego, se debe esperar 2 semanas para volver a solicitar el mismo libro.
 - Multas: $10.00 por cada día de retraso en la devolución.
 - Notificaciones: Se notificará cuando todos los ejemplares de un libro estén prestados o cuando la devolución esté pendiente.
 
+```php
     Apache License Version 2.0, January 2004  http://www.apache.org/licenses/
-                           
+```	                    
                 
