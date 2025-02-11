@@ -1,11 +1,11 @@
 name: PHP Syntax Check Pipeline
 
-# Ejecuta el workflow en cada push o pull request
 on: [push, pull_request]
 
 jobs:
+
   build:
-    name: build  # Este es uno de los checks requeridos que mencionaste
+    name: build  
     runs-on: ubuntu-latest
 
     steps:
@@ -15,14 +15,14 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'  # Puedes cambiar la versión si necesitas otra
+          php-version: '8.1' 
 
       - name: Syntax check for PHP files
         run: |
           find . -name "*.php" -exec php -l {} \;
 
   test:
-    name: test  # Este es el segundo check requerido
+    name: test  
     runs-on: ubuntu-latest
 
     steps:
