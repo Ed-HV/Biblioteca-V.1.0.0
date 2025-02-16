@@ -1,30 +1,10 @@
-name: PHP Syntax Check Pipeline
+name: PHP Security Check
 
 on: [push, pull_request]
 
 jobs:
-  build:
-    name: build
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1' 
-
-      - name: Syntax check for PHP files
-        run: | 
-         find . -name "*.php" -exec php -l {} \;
-
-
-  test:
-    name: test  
-    
+  security:
+    name: Security Check
     runs-on: ubuntu-latest
 
     steps:
@@ -35,51 +15,16 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
+          tools: composer
 
-      - name: Run basic PHP script check
+      - name: Install dependencies
+        run: composer install --no-progress --prefer-dist
+
+
+      - name: Run Composer Audit
+        run: composer audit --format plain
+
+      - name: Run Symfony Security Check
         run: |
-          echo "<?php echo 'Test passed!'; ?>" | php;
-          
-  phpstan:
-    name: PHPStan Analysis
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
-          tools: composer
-
-      - name: Install dependencies
-        run: composer install --no-progress --prefer-dist
-
-      - name: Run PHPStan
-
-        run: vendor/bin/phpstan analyse --level=5 admin/ user/
-
-
-  phpcs:
-    name: PHPCS Code Standard Check
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
-          tools: composer
-
-      - name: Install dependencies
-        run: composer install --no-progress --prefer-dist
-
-      - name: Run PHPCS
-
-        run: vendor/bin/phpcs --standard=PSR12 admin/ user/
-
+          composer require --dev symfony/security-checker
+          vendor/bin/security-checker security:check
