@@ -27,11 +27,4 @@ jobs:
       - name: Run Composer Audit
         run: composer audit --format plain
 
-      - name: Install Symfony CLI
-        run: |
-          curl -sS https://get.symfony.com/cli/installer | bash
-          export PATH="$HOME/.symfony/bin:$PATH"
-
-      - name: Run Symfony Security Check
-        run: symfony security:check
 
