@@ -19,12 +19,11 @@ $nombre_usuario = $_SESSION['nombre'];
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/dashboardStyle.css">
-
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
-<body class=bg-black>
+<body>
+
 
     <div class="d-flex" id="wrapper">
 
@@ -42,7 +41,7 @@ $nombre_usuario = $_SESSION['nombre'];
         </div>
 
         <!-- Contenido principal -->
-        <div id="page-content-wrapper" class="p-4" >
+           <div id="page-content-wrapper" class="p-4" >
             <h3> ¡Bienvenido, <?php echo htmlspecialchars($nombre_usuario); ?>! 🎉</h3>
             <p>Selecciona una opción del menú para comenzar.</p>
             <div id="content-area"></div>
