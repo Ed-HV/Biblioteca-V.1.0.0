@@ -19,17 +19,17 @@ $nombre_usuario = $_SESSION['nombre'];
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
 
+
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
         <div class="bg-dark border-end" id="sidebar-wrapper">
-            <div class="sidebar-heading text-white p-3">📚 Mi Biblioteca</div>
+            <div class="sidebar-heading text-white p-3">Universidad Tecnológica NovaHorizonte</div>
             <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('buscar_libros.php')">Buscar Libros</a>
                 <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('mis_prestamos.php')">Mis Préstamos</a>
@@ -41,8 +41,8 @@ $nombre_usuario = $_SESSION['nombre'];
         </div>
 
         <!-- Contenido principal -->
-        <div id="page-content-wrapper" class="p-4">
-            <h3>¡Bienvenido, <?php echo htmlspecialchars($nombre_usuario); ?>! 🎉</h3>
+           <div id="page-content-wrapper" class="p-4" >
+            <h3> ¡Bienvenido, <?php echo htmlspecialchars($nombre_usuario); ?>! 🎉</h3>
             <p>Selecciona una opción del menú para comenzar.</p>
             <div id="content-area"></div>
         </div>

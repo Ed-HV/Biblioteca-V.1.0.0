@@ -19,7 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<h2>Bienvenido, <?php echo $_SESSION['nombre']; ?>!</h2>
+<!DOCTYPE html>
+<html>  
+    <head>
+        <title>Biblioteca</title>
+        <link rel="stylesheet" type="text/css" href="assets\css\buscarStyle.css">
+        </head>
+
+<!--- <h2>Bienvenido , <?php echo $_SESSION['nombre']; ?>!</h2> --->
 
 
 <form method="POST" action="buscar_libros.php">

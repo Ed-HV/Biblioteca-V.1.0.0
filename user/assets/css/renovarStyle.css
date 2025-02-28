@@ -1,0 +1,51 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Título principal */
+h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Tabla de historial */
+table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+/* Encabezados y celdas */
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Encabezados de la tabla */
+table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Filas alternas y hover */
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #e9e9e9;
+}
+
+/* Mensaje de no datos */
+p {
+    text-align: center;
+    font-size: 16px;
+}

@@ -33,3 +33,12 @@ if ($result->num_rows > 0) {
     echo "No tienes historial de préstamos.";
 }
 ?>
+ 
+
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Prestamos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets\css\historialStyle.css">
+</head>
+
