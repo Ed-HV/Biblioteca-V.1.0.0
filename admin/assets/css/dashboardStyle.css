@@ -1,0 +1,30 @@
+/* Aumentar el tamaño del sidebar */
+#sidebar-wrapper {
+    min-width: 280px;
+    width: 300px;
+    height: 100vh; /* Ocupar toda la altura */
+}
+
+/* Ajustar el contenido principal */
+#page-content-wrapper {
+    flex-grow: 1;
+    padding: 30px; /* Más espacio */
+}
+
+/* Aumentar el tamaño del texto */
+.sidebar-heading {
+    font-size: 1.5rem; /* Más grande */
+}
+
+.list-group-item {
+    font-size: 1.2rem; /* Aumentar tamaño de opciones */
+    padding: 15px; /* Más espacio */
+}
+
+h3 {
+    font-size: 2rem; /* Más grande el saludo */
+}
+
+p {
+    font-size: 1.3rem; /* Más grande la descripción */
+}
