@@ -7,9 +7,14 @@
     <meta charset="UTF-8">
     <title>Dashboard - Sistema de Préstamo de Libros</title>
     
-}
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/dashboardStyle.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
    
-   <link rel="" href="assets/css/">
+   <link rel="" href="assets/css/dashboardStyle.css">
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -34,8 +39,8 @@
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
-                    <button class="btn btn-dark" id="menu-toggle">☰ Menú</button>
-                    <h4 class="ms-3">Sistema de Préstamo de Libros - Administrador</h4>
+                    
+                    <h4 class="ms-3">Universidad Tecnológica NovaHorizonte - Administrador</h4>
                 </div>
             </nav>
 
@@ -58,17 +63,9 @@
             </div>
         </div>
       </div>
- 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
    <script src="assets/js/scripts.js"></script> 
     
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const wrapper = document.getElementById('wrapper');
-
-        menuToggle.addEventListener('click', () => {
-            wrapper.classList.toggle('toggled');
-        });
-    </script>
 </body>
 </html>
