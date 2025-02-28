@@ -1,0 +1,37 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #0c0c0c;
+    color: #333;
+}
+/* Encabezado */
+h2 {
+    color: #0075db;
+    margin-bottom: 20px;
+}
+/* Tabla de historial de préstamos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #070707;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #121111;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background: #0f0f0f;
+}
+tr:hover {
+    background: #0a0a0a;
+}
+/* Mensaje cuando no hay datos */
+p {
+    font-size: 16px;
+}

@@ -48,3 +48,9 @@ if ($result->num_rows > 0) {
     echo "No tienes préstamos activos.";
 }
 ?>
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Préstamos</title>
+    <link rel="stylesheet" href="assets\css\prestamoStyle.css">
+</head>
+
