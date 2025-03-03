@@ -1,34 +1,105 @@
-/* Aumentar el tamaño del sidebar */
+/* Estilos generales */
+body {
+    background-color: black;
+    color: aqua;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+#wrapper {
+    display: flex;
+    height: 100%;
+}
+
+/* Sidebar más grande y estético */
 #sidebar-wrapper {
-    min-width: 280px;
-    width: 300px;
-    height: 100vh; /* Ocupar toda la altura */
+    background-color: black;
+    border-right: 2px solid aqua;
+    width: 300px; /* Aumentamos el ancho del sidebar */
+    min-height: 100vh;
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.7); /* Sombra más pronunciada */
+    padding: 20px; /* Espaciado interno */
 }
 
-/* Ajustar el contenido principal */
-#page-content-wrapper {
-    color:aqua;
-    flex-grow: 1;
-    padding: 30px; /* Más espacio */
-}
-
-/* Aumentar el tamaño del texto */
+/* Título del sidebar */
 .sidebar-heading {
-    font-size: 1.5rem; /* Más grande */
+    font-size: 1.8rem; /* Título más grande */
+    font-weight: bold;
+    text-align: center;
+    color: aqua;
+    border-bottom: 2px solid aqua; /* Borde más grueso */
+    padding-bottom: 15px; /* Espaciado inferior */
+    margin-bottom: 20px; /* Margen inferior */
 }
 
+/* Elementos del sidebar */
 .list-group-item {
-    font-size: 1.2rem; /* Aumentar tamaño de opciones */
-    padding: 15px; /* Más espacio */
+    background-color: transparent !important;
+    color: aqua !important;
+    border: none !important;
+    padding: 15px 25px; /* Más espacio interno */
+    margin: 10px 0; /* Espaciado entre elementos */
+    border-radius: 10px; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave */
+    font-size: 1.1rem; /* Tamaño de fuente más grande */
 }
 
+/* Efecto hover en los elementos del sidebar */
+.list-group-item:hover {
+    background-color: rgba(0, 255, 255, 0.1) !important;
+    color: aqua !important;
+    transform: translateX(10px); /* Desplazamiento hacia la derecha */
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5); /* Sombra al hacer hover */
+}
+
+/* Botón de cerrar sesión */
+.list-group-item.bg-danger {
+    background-color: #dc3545 !important;
+    color: white !important;
+    margin-top: 30px; /* Más margen superior */
+    text-align: center; /* Texto centrado */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    padding: 15px; /* Más espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.list-group-item.bg-danger:hover {
+    background-color: #c82333 !important;
+    transform: translateX(10px); /* Desplazamiento hacia la derecha */
+    box-shadow: 0px 0px 10px rgba(220, 53, 69, 0.5); /* Sombra al hacer hover */
+}
+
+/* Contenido principal */
+#page-content-wrapper {
+    flex-grow: 1;
+    padding: 30px; /* Más espacio interno */
+    background-color: black;
+    color: aqua;
+}
+
+/* Título del contenido principal */
 h3 {
-    font-size: 2rem; /* Más grande el saludo */
+    color: aqua;
+    font-size: 2.5rem; /* Título más grande */
+    margin-bottom: 25px; /* Más margen inferior */
+    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5); /* Sombra en el texto */
 }
 
+/* Párrafo del contenido principal */
 p {
-    font-size: 1.3rem; /* Más grande la descripción */
+    color: rgba(0, 255, 255, 0.8);
+    font-size: 1.3rem; /* Texto más grande */
+    margin-bottom: 30px; /* Más margen inferior */
 }
-.texto{
-color:aqua;
+
+/* Área de contenido dinámico */
+#content-area {
+    margin-top: 30px; /* Más margen superior */
+    padding: 25px; /* Más espacio interno */
+    border: 2px solid aqua; /* Borde más grueso */
+    border-radius: 15px; /* Bordes más redondeados */
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.7); /* Sombra más pronunciada */
 }
