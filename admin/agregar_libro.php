@@ -15,22 +15,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $editorial = $conn->real_escape_string($_POST['editorial']);
     $anio_publicacion = $conn->real_escape_string($_POST['anio_publicacion']);
     $edicion = $conn->real_escape_string($_POST['edicion']);
+    $disponibilidad = $conn->real_escape_string($_POST['disponibilidad']);
 
-    // Consulta SQL corregida
-    $sql = "INSERT INTO libros (isbn, codigo_barras, titulo, autor, editorial, año_publicacion, edicion) 
-            VALUES ('$isbn', '$codigo_barras', '$titulo', '$autor', '$editorial', '$anio_publicacion', '$edicion')";
+    // Verificar si el ISBN ya existe
+    $check_sql = "SELECT * FROM libros WHERE isbn = '$isbn'";
+    $result = $conn->query($check_sql);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "<p class='text-success'>Libro agregado exitosamente.</p>";
+    if ($result->num_rows > 0) {
+        echo "<script>
+                alert('⚠️ Error: El ISBN ya está registrado en la base de datos.');
+                window.history.back();
+              </script>";
     } else {
-        echo "<p class='text-danger'>Error al agregar el libro: " . $conn->error . "</p>";
+        // Insertar el nuevo libro si el ISBN no existe
+        $sql = "INSERT INTO libros (isbn, codigo_barras, titulo, autor, editorial, año_publicacion, edicion, disponibilidad) 
+                VALUES ('$isbn', '$codigo_barras', '$titulo', '$autor', '$editorial', '$anio_publicacion', '$edicion', '$disponibilidad')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>
+                    alert('✅ Libro agregado exitosamente.');
+                    window.location.href = 'dashboard.php?modulo=agregar_libro';
+                  </script>";
+        } else {
+            echo "<script>
+                    alert('⚠️ Error al agregar el libro: " . addslashes($conn->error) . "');
+                  </script>";
+        }
     }
 }
 ?>
 
 <!-- Formulario para agregar libro -->
 <h3>Agregar Nuevo Libro</h3>
-<form method="POST" action="agregar_libro.php">
+<form method="POST" action="dashboard.php?modulo=agregar_libro">
     <div class="mb-3">
         <label for="isbn" class="form-label">ISBN</label>
         <input type="text" name="isbn" class="form-control" required>
@@ -59,6 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="edicion" class="form-label">Edición</label>
         <input type="text" name="edicion" class="form-control" required>
     </div>
+    <div class="mb-3">
+        <label for="disponibilidad" class="form-label">Cantidad de Libros</label>
+        <input type="text" name="disponibilidad" class="form-control" required>
+    </div>
     <button type="submit" class="btn btn-primary">Agregar Libro</button>
-   
 </form>
