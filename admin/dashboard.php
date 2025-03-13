@@ -24,7 +24,7 @@
             <div class="sidebar-heading text-white p-3">📚 Biblioteca Admin</div>
             <div class="list-group list-group-flush">
                 <a href="dashboard.php?modulo=agregar_libro" class="list-group-item list-group-item-action bg-dark text-white">Agregar Libro</a>
-                <a href="dashboard.php?modulo=editar_libro&id_libro=123" class="btn btn-warning">Editar Libro</a>
+                <a href="dashboard.php?modulo=editar_libro&id_libro=123" class="list-group-item list-group-item-action bg-dark text-white">Editar Libro</a>
                 <a href="dashboard.php?modulo=eliminar_libro" class="list-group-item list-group-item-action bg-dark text-white">Eliminar Libro</a>
                 <a href="dashboard.php?modulo=registrar_prestamo" class="list-group-item list-group-item-action bg-dark text-white">Registrar Préstamo</a>
                 <a href="dashboard.php?modulo=registrar_devolucion" class="list-group-item list-group-item-action bg-dark text-white">Registrar Devolución</a>
