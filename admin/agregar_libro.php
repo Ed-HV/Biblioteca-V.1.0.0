@@ -1,11 +1,5 @@
 <?php
 include 'conexion.php';
-session_start();
-
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: login.php');
-    exit();
-}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $isbn = $conn->real_escape_string($_POST['isbn']);
@@ -22,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $conn->query($check_sql);
 
     if ($result->num_rows > 0) {
-        echo "<script>
-                alert('⚠️ Error: El ISBN ya está registrado en la base de datos.');
+        echo "<script>         
+               alert('⚠️ Error: El ISBN ya está registrado en la base de datos.');
                 window.history.back();
               </script>";
     } else {
