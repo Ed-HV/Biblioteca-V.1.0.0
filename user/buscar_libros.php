@@ -1,12 +1,5 @@
 <?php
 include 'conexion.php';
-session_start();
-
-// Verifica que el usuario haya iniciado sesión
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: login.php');
-    exit();
-}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $busqueda = $_POST['busqueda'];
