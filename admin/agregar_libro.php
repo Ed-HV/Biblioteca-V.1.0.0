@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result->num_rows > 0) {
         echo "<script>
-                alert('⚠️ Error: El ISBN ya está registrado en la base de datos.');
+                alert('⚠️ Error: El ISBN ya está registrado en la base de datos.');g
                 window.history.back();
               </script>";
     } else {
