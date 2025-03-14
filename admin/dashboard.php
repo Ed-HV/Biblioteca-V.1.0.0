@@ -24,12 +24,17 @@
             <div class="sidebar-heading text-white p-3">📚 Biblioteca Admin</div>
             <div class="list-group list-group-flush">
                 <a href="dashboard.php?modulo=agregar_libro" class="list-group-item list-group-item-action bg-dark text-white">Agregar Libro</a>
-                <a href="dashboard.php?modulo=editar_libro&id_libro=123" class="btn btn-warning">Editar Libro</a>
+                <a href="dashboard.php?modulo=editar_libro&id_libro=123" class="list-group-item list-group-item-action bg-dark text-white">Editar Libro</a>
                 <a href="dashboard.php?modulo=eliminar_libro" class="list-group-item list-group-item-action bg-dark text-white">Eliminar Libro</a>
                 <a href="dashboard.php?modulo=registrar_prestamo" class="list-group-item list-group-item-action bg-dark text-white">Registrar Préstamo</a>
                 <a href="dashboard.php?modulo=registrar_devolucion" class="list-group-item list-group-item-action bg-dark text-white">Registrar Devolución</a>
                 <a href="dashboard.php?modulo=gestionar_multas" class="list-group-item list-group-item-action bg-dark text-white">Gestionar Multas</a>
                 <a href="dashboard.php?modulo=reportes" class="list-group-item list-group-item-action bg-dark text-white">Reportes</a>
+                <a href="dashboard.php?modulo=reporte_fechas" class="list-group-item list-group-item-action bg-dark text-white">Proximas Entregas</a>
+                <a href="dashboard.php?modulo=libros_retardo" class="list-group-item list-group-item-action bg-dark text-white">Retardos</a>
+                <a href="dashboard.php?modulo=reporte_renovaciones" class="list-group-item list-group-item-action bg-dark text-white">Reportes Renovaciones</a>
+                <a href="dashboard.php?modulo=reporte_adeudos" class="list-group-item list-group-item-action bg-dark text-white">Adeudos</a>
+                <a href="dashboard.php?modulo=usuarios" class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
                 <a href="dashboard.php?modulo=notificaciones" class="list-group-item list-group-item-action bg-dark text-white">Notificaciones</a>
             </div>
         </div>
