@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+session();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_usuario = $_POST['id_usuario'];
