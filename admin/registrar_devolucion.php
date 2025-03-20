@@ -1,13 +1,14 @@
 <?php
 include 'conexion.php';
+
 $mensaje="";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_prestamo = $_POST['id_prestamo'];  // ID del préstamo
-  
 
     // Llamada al procedimiento almacenado para registrar la devolución
     $sql = "CALL registrar_devolucion(?, @mensaje)";
+
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
