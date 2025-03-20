@@ -1,23 +1,19 @@
 <?php
 include 'conexion.php';
-session_start();
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: login.php');
-    exit();
-}
+
+$mensaje="";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_prestamo = $_POST['id_prestamo'];  // ID del préstamo
-    $id_usuario = $_SESSION['id_usuario'];  // Suponiendo que el ID del usuario está en la sesión
 
     // Llamada al procedimiento almacenado para registrar la devolución
-    $sql = "CALL registrar_devolucion(?, ?, @mensaje)";
+    $sql = "CALL registrar_devolucion(?, @mensaje)";
+
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
         // Vincula los parámetros
-        $stmt->bind_param("ii", $id_prestamo, $id_usuario);
+        $stmt->bind_param("i", $id_prestamo);
         $stmt->execute();
         $stmt->close();
 
@@ -57,7 +53,7 @@ if (!empty($mensaje)) {
 </div>
 
 <!-- Formulario para registrar devolución -->
-<form method="POST" action="registrar_devolucion.php">
+<form method="POST" action="dashboard.php?modulo=registrar_devolucion">
     ID del Préstamo: <input type="number" name="id_prestamo" required><br>
     <input type="submit" value="Registrar Devolución">
 </form>
