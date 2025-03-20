@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="mb-3">
             <label for="telefono" class="form-label">Teléfono</label>
-            <input type="text" name="telefono" class="form-control" required>
+            <input type="text" name="telefono" class="form-control">
         </div>
 
         <button type="submit" class="btn btn-success w-100">Registrarse</button>

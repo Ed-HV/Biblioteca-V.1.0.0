@@ -35,3 +35,35 @@ tr:hover {
 p {
     font-size: 16px;
 }
+/* Estilo para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    background-color: #141414; /* Fondo oscuro para resaltar colores neón */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para la tabla */
+  }
+  
+  table th, table td {
+    border: 1px solid #00ffcc; /* Borde neón (verde menta) */
+    padding: 12px 15px;
+    text-align: center;
+    color: #ffffff; /* Texto blanco */
+  }
+  
+  table th {
+    background-color: #00ffcc; /* Cabecera en verde neón */
+    color: #141414; /* Texto oscuro en cabecera para contraste */
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #1f1f1f; /* Color alterno para filas */
+  }
+  
+  table tr:hover {
+    background-color: #333333; /* Resaltar fila al pasar el mouse */
+    box-shadow: 0 0 10px #00ffcc; /* Efecto neón al hover */
+  }
+  

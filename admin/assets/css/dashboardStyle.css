@@ -1,30 +1,66 @@
-/* Aumentar el tamaño del sidebar */
 #sidebar-wrapper {
-    min-width: 280px;
-    width: 300px;
-    height: 100vh; /* Ocupar toda la altura */
-}
-
-/* Ajustar el contenido principal */
-#page-content-wrapper {
-    flex-grow: 1;
-    padding: 30px; /* Más espacio */
-}
-
-/* Aumentar el tamaño del texto */
-.sidebar-heading {
-    font-size: 1.5rem; /* Más grande */
+    background-color: #121212; /* Fondo oscuro */
+    border-right: 2px solid #a97d1d; /* Borde neón */
 }
 
 .list-group-item {
-    font-size: 1.2rem; /* Aumentar tamaño de opciones */
-    padding: 15px; /* Más espacio */
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
 }
 
-h3 {
-    font-size: 2rem; /* Más grande el saludo */
+.list-group-item:hover {
+    background-color: #00ffcc; /* Efecto neón */
+    color: #000000;
+    box-shadow: 0 0 10px #00ffcc;
+}
+.tableborder1 {
+    background-color: #000000; /* Fondo negro */
+    color: #ffffff; /* Letras blancas */
+    border-collapse: separate;
+    border-spacing: 0 5px;
 }
 
-p {
-    font-size: 1.3rem; /* Más grande la descripción */
+.table th {
+    background-color: #00ffcc; /* Fondo neón */
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
 }
+
+.table td {
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.table tr:hover td {
+    background-color: #00ffcc; /* Efecto hover */
+    color: #000000;
+    transition: 0.3s;
+}
+h2 {
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+body {
+    background-color: #283747; /* Fondo oscuro */
+    /*color: #fff;  Texto blanco */
+    color: #a29ea3; /* Fondo azul neón */
+    box-shadow: 0 0 20px #a29ea3, 0 0 40px #a29ea3, 0 0 80px #a29ea3; /* Efecto de resplandor */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
