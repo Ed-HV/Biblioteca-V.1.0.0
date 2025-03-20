@@ -3,26 +3,12 @@ include 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $busqueda = $_POST['busqueda'];
-    $sql = "SELECT libros.*, 
-                   (SELECT MIN(fecha_devolucion) 
-                    FROM prestamos 
-                    WHERE prestamos.id_libro = libros.id_libro 
-                      AND prestamos.estado_prestamo = 'Activo') AS fecha_disponible
-            FROM libros 
-            WHERE (titulo LIKE ? OR autor LIKE ? OR isbn LIKE ? OR id_libro LIKE ?)";
-    $stmt = $conn->prepare($sql);
-    $searchTerm = "%$busqueda%";
-    $stmt->bind_param("ssss", $searchTerm, $searchTerm, $searchTerm, $searchTerm);
-    $stmt->execute();
-    $result = $stmt->get_result();
-} else {
-    $sql = "SELECT libros.*, 
-                   (SELECT MIN(fecha_devolucion) 
-                    FROM prestamos 
-                    WHERE prestamos.id_libro = libros.id_libro 
-                      AND prestamos.estado_prestamo = 'Activo') AS fecha_disponible
-            FROM libros";
+    $sql = "SELECT * FROM libros 
+            WHERE (titulo LIKE '%$busqueda%' OR autor LIKE '%$busqueda%' OR isbn LIKE '%$busqueda%'  OR id_libro LIKE '%$busqueda%') 
+            AND estado = 'Disponible'";
     $result = $conn->query($sql);
+} else {
+    $result = $conn->query("SELECT * FROM libros WHERE estado = 'Disponible'");
 }
 ?>
 
@@ -30,49 +16,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>  
     <head>
         <title>Biblioteca</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/buscarStyle.css">
-    </head>
-    <body>
-        <form method="POST" action="buscar_libros.php">
-            Buscar libro: <input type="text" name="busqueda" placeholder="Título, autor, ID o ISBN">
-            <input type="submit" value="Buscar">
-        </form>
+        <link rel="stylesheet" type="text/css" href="assets\css\buscarStyle.css">
+        </head>
 
-        <h3>Libros Disponibles:</h3>
-        <?php
-        if ($result->num_rows > 0) {
-            echo "<table border='1'><tr><th>ISBN</th><th>Título</th><th>Autor</th><th>Estado</th><th>Acción</th><th>En Inventario</th><th>Disponible A partir de</th></tr>";
-            while ($libro = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>" . htmlspecialchars($libro['isbn']) . "</td>
-                        <td>" . htmlspecialchars($libro['titulo']) . "</td>
-                        <td>" . htmlspecialchars($libro['autor']) . "</td>
-                        <td>" . htmlspecialchars($libro['estado']) . "</td>
-                        <td>";
-                if ($libro['estado'] == 'Disponible') {
-                    echo "<a href='mis_prestamos.php?id_libro=" . $libro['id_libro'] . "'>Solicitar Préstamo</a>";
-                } else {
-                    echo "No disponible";
-                }
-                echo "</td>
-                        <td>" . htmlspecialchars($libro['disponibilidad']) . "</td>
-                        <td>";
-                // Mostrar fecha disponible solo si el libro no está disponible
-                if ($libro['estado'] != 'Disponible') {
-                    echo $libro['fecha_disponible'] ? htmlspecialchars($libro['fecha_disponible']) : 'N/A';
-                } else {
-                    echo "Disponible ahora";
-                }
-                echo "</td>
-                      </tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "No se encontraron libros disponibles.";
-        }
-        ?>
-        <form method="POST" action="dashboard.php">
-            <button type="submit" class="btn btn-success w-100">Dashboard</button>    
-        </form>
-    </body>
-</html>
+<form method="POST" action="buscar_libros.php">
+    Buscar libro: <input type="text" name="busqueda" placeholder="Título, autor, ID o ISBN">
+    <input type="submit" value="Buscar">
+</form>
+
+<h3>Libros Disponibles:</h3>
+<?php
+if ($result->num_rows > 0) {
+    echo "<table border='1'><tr><th>ISBN</th><th>Título</th><th>Autor</th><th>Estado</th><th>Acción</th><th>En Inventario</th><th>Disponible Apartir</th></tr>";
+    while ($libro = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>" . $libro['isbn'] . "</td>
+                <td>" . $libro['titulo'] . "</td>
+                <td>" . $libro['autor'] . "</td>
+                <td>" . $libro['estado'] . "</td>
+                <td><a href='mis_prestamos.php?id_libro=" . $libro['id_libro'] . "'>Solicitar Préstamo</a></td>
+                <td>" . $libro['disponibilidad'] . "</td>
+                 <td>" . $libro['fecha_disponible'] . "</td>
+              </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No se encontraron libros disponibles.";
+}
+
+?>
+<form method="POST" action="dashboard.php">
+<button type="submit" class="btn btn-success w-100">Dashboard</button>    
+</form>
