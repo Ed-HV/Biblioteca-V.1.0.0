@@ -19,7 +19,9 @@ $result = $conn->query($sql);
 <h2>Historial de Préstamos</h2>
 <?php
 if ($result->num_rows > 0) {
-    echo "<table border='1'><tr><th>Título</th><th>Fecha Préstamo</th><th>Fecha Devolución</th><th>Estado</th></tr>";
+    echo "<table class='tabla-neon'>";
+
+    /*echo "<table border='1'><tr><th>Título</th><th>Fecha Préstamo</th><th>Fecha Devolución</th><th>Estado</th></tr>";*/
     while ($prestamo = $result->fetch_assoc()) {
         echo "<tr>
                 <td>" . $prestamo['titulo'] . "</td>
