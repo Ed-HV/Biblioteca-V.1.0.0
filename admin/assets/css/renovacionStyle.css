@@ -2,7 +2,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background-color: #a97d1d; /* Fondo neón */
+    background-color:rgb(255, 255, 255); /* Fondo neón */
     color: #000000;
     text-align: center;
     font-weight: bold;

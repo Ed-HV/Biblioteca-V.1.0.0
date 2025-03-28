@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_libro'])) {
     $resultado = $conn->query($verificar);
 
     if ($resultado->num_rows > 0) {
-        $mensaje = "No se puede eliminar el libro porque está prestado actualmente.";
+        $mensaje = "⚠️ No se puede eliminar el libro porque está prestado actualmente.";
+        $icono = "warning";
     } else {
         // Eliminar los préstamos asociados primero
         $eliminar_prestamos = "DELETE FROM prestamos WHERE id_libro = '$id_libro'";
@@ -23,38 +24,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_libro'])) {
         $sql = "DELETE FROM libros WHERE id_libro = '$id_libro'";
 
         if ($conn->query($sql) === TRUE) {
-            $mensaje = "Libro eliminado exitosamente.";
+            $mensaje = "✅ Libro eliminado exitosamente.";
+            $icono = "success";
         } else {
-            $mensaje = "Error al eliminar libro: " . $conn->error;
+            $mensaje = "⚠️ Error al eliminar libro: " . addslashes($conn->error);
+            $icono = "error";
         }
     }
 }
 ?>
 
-<!-- Mostrar mensaje si existe -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Libro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
 <?php if (!empty($mensaje)): ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener("DOMContentLoaded", function() {
             Swal.fire({
                 title: 'Información',
                 text: '<?php echo $mensaje; ?>',
-                icon: 'info',
+                icon: '<?php echo $icono; ?>',
                 confirmButtonText: 'OK'
             });
         });
     </script>
 <?php endif; ?>
 
-<!-- Formulario para ingresar el ID del libro a eliminar -->
-<form method="POST" action="dashboard.php?modulo=eliminar_libro">
-    <label for="id_libro">ID del Libro a Eliminar:</label>
-    <input type="number" name="id_libro" id="id_libro" required><br>
-    <input type="submit" value="Eliminar Libro">
-</form>
+<!-- Formulario centrado -->
+<div class="container d-flex justify-content-center align-items-center min-vh-50">
+    <div class="col-md-6">
+        <div class="card shadow-lg">
+            <div class="card-body text-center">
+                <h3 class="mb-4">Eliminar Libro</h3>
+                <form method="POST" action="dashboard.php?modulo=eliminar_libro">
+                    <div class="mb-3">
+                        <label for="id_libro" class="form-label">ID del Libro a Eliminar</label>
+                        <input type="number" name="id_libro" id="id_libro" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100">Eliminar Libro</button>
+                </form>
+                <br>
+                <a href="dashboard.php?modulo=agregar_libro" class="btn btn-secondary w-100">Volver a la Gestión de Libros</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Enlace para volver a la gestión de libros -->
-<br>
-<a href="dashboard.php?modulo=agregar_libro">Volver a la Gestión de Libros</a>
-
-<!-- Incluir el script de SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

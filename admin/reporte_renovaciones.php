@@ -16,24 +16,35 @@ $resultado = $conn->query($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuarios</title>
-    <link rel="stylesheet" href="assets/css/renovacionStyle.css">  
+    <!-- Agregar el CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
-<h2>Reporte de Renovaciones</h2>
-<table>
-    <tr>
-        <th>ID Préstamo</th>
-        <th>Usuario</th>
-        <th>Libro</th>
-        <th>Veces Renovado</th>
-     <!--   <th>Última Fecha de Renovación</th> --->
-    </tr>
-    <?php while ($fila = $resultado->fetch_assoc()) { ?>
-    <tr>
-        <td><?php echo $fila['id_prestamo']; ?></td>
-        <td><?php echo $fila['nombre']; ?></td>
-        <td><?php echo $fila['titulo']; ?></td>
-        <td><?php echo $fila['renovaciones']; ?></td>
-   <!--    <td><?php echo $fila['fecha_renovacion']; ?></td> -->
-    </tr>
-    <?php } ?>
-</table>
+<body>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Reporte de Renovaciones</h2>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID Préstamo</th>
+                <th>Usuario</th>
+                <th>Libro</th>
+                <th>Veces Renovado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($fila = $resultado->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $fila['id_prestamo']; ?></td>
+                    <td><?php echo $fila['nombre']; ?></td>
+                    <td><?php echo $fila['titulo']; ?></td>
+                    <td><?php echo $fila['renovaciones']; ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

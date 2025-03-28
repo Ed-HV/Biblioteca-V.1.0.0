@@ -22,15 +22,57 @@ if (!$resultado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Adeudos</title>
-   <link rel="stylesheet" href="assets/css/adeudoStyle.css"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+       
+        .tabla-multas {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tabla-multas th, .tabla-multas td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .tabla-multas th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .tabla-multas td {
+            background-color: #f8f9fa;
+        }
+
+        .monto {
+            color: #28a745;
+        }
+
+        .no-resultados {
+            text-align: center;
+            font-size: 18px;
+            color:rgb(36, 0, 240);
+        }
+
+        .btn-volver {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-volver:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2 class="text-center neon-text">Reporte de Adeudos</h2>
+    <div class="container mt-5">
+        <h2 class="text-center">Reporte de Adeudos</h2>
         
         <?php if ($resultado->num_rows > 0): ?>
-            <table class="tabla-multas">
+            <table class="tabla-multas table table-bordered table-striped mt-4">
                 <thead>
                     <tr>
                         <th>ID Multa</th>
@@ -59,9 +101,6 @@ if (!$resultado) {
         <?php endif; ?>
 
         <!-- Botón corregido para volver al Dashboard -->
-        <div class="text-center mt-4">
-            <a href="dashboard.php" class="btn-volver">Volver al Dashboard</a>
-        </div>
-    </div>
+       
 </body>
 </html>

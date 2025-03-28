@@ -48,12 +48,61 @@ if (!empty($mensaje)) {
 
 ?>
 
-<div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Devolución</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .form-container {
+            background:white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto; /* Centrado sin afectar el cuerpo */
+        }
 
-<!-- Formulario para registrar devolución -->
-<form method="POST" action="dashboard.php?modulo=registrar_devolucion">
-    ID del Préstamo: <input type="number" name="id_prestamo" required><br>
-    <input type="submit" value="Registrar Devolución">
-</form>
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container input[type="number"],
+        .form-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor del formulario centrado -->
+    <div class="form-container">
+        <h2>Registrar Devolución</h2>
+        <form method="POST" action="dashboard.php?modulo=registrar_devolucion">
+            <label for="id_prestamo">ID del Préstamo:</label>
+            <input type="number" name="id_prestamo" required>
+            <input type="submit" value="Registrar Devolución">
+        </form>
+    </div>
+
+</body>
+</html>

@@ -40,54 +40,72 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Libro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container d-flex justify-content-center  align-items-center min-vh-100">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Agregar Nuevo Libro</h3>
+                    <form method="POST" action="dashboard.php?modulo=agregar_libro">
+                        <div class="mb-3">
+                            <label for="isbn" class="form-label">ISBN</label>
+                            <input type="text" name="isbn" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="codigo_barras" class="form-label">Código de Barras</label>
+                            <input type="text" name="codigo_barras" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label">Título</label>
+                            <input type="text" name="titulo" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="autor" class="form-label">Autor</label>
+                            <input type="text" name="autor" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editorial" class="form-label">Editorial</label>
+                            <input type="text" name="editorial" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="anio_publicacion" class="form-label">Año de Publicación</label>
+                            <input type="number" name="anio_publicacion" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edicion" class="form-label">Edición</label>
+                            <input type="text" name="edicion" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado</label>
+                            <select name="estado" class="form-select" required>
+                                <option value="">Selecciona El Estado</option>
+                                <option value="No Disponible">No Disponible</option>
+                                <option value="Disponible">Disponible</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="disponibilidad" class="form-label">Cantidad de Libros</label>
+                            <input type="number" name="disponibilidad" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha_disponible" class="form-label">Fecha Disponible</label>
+                            <input type="date" name="fecha_disponible" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Agregar Libro</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 
-<!-- Formulario para agregar libro -->
-<h3>Agregar Nuevo Libro</h3>
-<form method="POST" action="dashboard.php?modulo=agregar_libro">
-    <div class="mb-3">
-        <label for="isbn" class="form-label">ISBN</label>
-        <input type="text" name="isbn" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="codigo_barras" class="form-label">Código de Barras</label>
-        <input type="text" name="codigo_barras" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="titulo" class="form-label">Título</label>
-        <input type="text" name="titulo" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="autor" class="form-label">Autor</label>
-        <input type="text" name="autor" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="editorial" class="form-label">Editorial</label>
-        <input type="text" name="editorial" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="anio_publicacion" class="form-label">Año de Publicación</label>
-        <input type="number" name="anio_publicacion" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="edicion" class="form-label">Edición</label>
-        <input type="text" name="edicion" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="estado" class="form-label">Estado</label>
-        <select name="estado" class="form-control" required>
-                <option value="">Selecciona El Estado</option>
-                <option value="No Disponible">No Disponible</option>
-                <option value="Disponible">Disponible</option>
-        </select>
-    </div>
-    
-    <div class="mb-3">
-        <label for="disponibilidad" class="form-label">Cantidad de Libros</label>
-        <input type="num" name="disponibilidad" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="fecha_disponible" class="form-label">Fecha Disponible</label>
-        <input type="date" name="fecha_disponible" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Agregar Libro</button>
-</form>
