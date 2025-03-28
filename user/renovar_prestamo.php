@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_prestamo'])) {
                 // Calcular la nueva fecha de devolución para mostrarla al usuario
                 $nueva_fecha = date('Y-m-d', strtotime($prestamo['fecha_devolucion'] . ' +4 days'));
                 // Mostrar mensaje emergente y mensaje en la página
-            //    echo "<script>alert('Préstamo renovado exitosamente. Nueva fecha de devolución: $nueva_fecha');</script>";
+                echo "<script>alert('Préstamo renovado exitosamente. Nueva fecha de devolución: $nueva_fecha');</script>";
                 echo "<p class='text-success'>Préstamo renovado exitosamente. Nueva fecha de devolución: $nueva_fecha</p>";
             } else {
                 echo "<p class='text-danger'>Error al renovar préstamo: " . $conn->error . "</p>";
@@ -64,9 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_prestamo'])) {
         <button type="submit" class="btn btn-success mt-2">Renovar Préstamo</button>    
     </form>
     <br>
+    <div>
     <a href="mis_prestamos.php" class="btn btn-primary mt-3">Volver a Mis Préstamos</a>
     <a href="dashboard.php" class="btn btn-primary mt-3">Dashboard</a>
-
+    </div>
    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

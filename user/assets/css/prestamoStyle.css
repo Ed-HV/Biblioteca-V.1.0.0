@@ -1,76 +1,153 @@
-/* Estilos generales */
+/* Estilo base */
 body {
     background-color: black;
-    color: aqua;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Título de la página */
-h2 {
     color: white;
-    font-size: 2.5rem;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  h2 {
+    color: white;
     text-align: center;
     margin-bottom: 30px;
-    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
-}
-
-/* Tabla de préstamos */
-table {
-    width: 100%;
+    font-size: 2.5em;
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff,
+      0 0 6px #00ffff,
+      0 0 10px #00ffff;
+  }
+  
+  /* Tabla de préstamos */
+  table {
+    width: 95%;
+    max-width: 1200px;
     border-collapse: collapse;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.7);
-}
-
-/* Cabecera de la tabla */
-th {
+    margin: 25px 0;
+    font-size: 1.1em;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    border: 2px solid #00ffff;
+    animation: glow 2s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    to {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    }
+  }
+  
+  th {
     background-color: rgba(0, 255, 255, 0.1);
     color: white;
-    font-size: 1.2rem;
-    padding: 15px;
-    text-align: center;
-    border-bottom: 2px solid white;
-}
-
-/* Celdas de la tabla */
-td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-    font-size: 1.1rem;
-}
-
-/* Efecto hover en las filas de la tabla */
-tr:hover {
-    background-color: rgba(0, 255, 255, 0.1);
-}
-
-/* Enlace de renovación */
-a {
-    color: white !important;
-    text-decoration: none;
+    text-align: left;
+    padding: 12px 15px;
     font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-/* Efecto hover en el enlace */
-a:hover {
-    color: rgba(0, 255, 255, 0.8) !important;
-    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
-}
-
-/* Mensaje cuando no hay préstamos */
-p {
-    color: rgba(242, 244, 244, 0.8);
-    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #00ffff;
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff;
+  }
+  
+  td {
+    color: white;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff;
+  }
+  
+  tr:hover td {
+    background-color: rgba(0, 255, 255, 0.1);
+    text-shadow: 
+      0 0 5px #00ffff,
+      0 0 10px #00ffff;
+  }
+  
+  /* Enlaces de renovación */
+  a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff;
+  }
+  
+  a:hover {
+    color: white;
+    text-shadow: 
+      0 0 5px #00ffff,
+      0 0 15px #00ffff;
+  }
+  
+/* Contenedor del botón - Versión corregida */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alineación vertical adicional */
+    width: 100%;
+    margin: 30px 0;
+    padding: 0 20px; /* Añade padding para evitar pegado a bordes en móviles */
+  }
+  
+  /* Botón Dashboard - Versión mejorada */
+  .btn-dashboard {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #00ffff;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff;
+    text-decoration: none;
     text-align: center;
-    margin-top: 30px;
-}
-.btn-success:center{
-    btn-size:20px;
-}
+    min-width: 200px; /* Usamos min-width en lugar de width fijo */
+    display: inline-block; /* Cambio importante para centrado */
+    margin: 0 auto; /* Centrado adicional */
+  }
+  
+  /* Efectos hover se mantienen igual */
+  .btn-dashboard:hover {
+    background-color: rgba(0, 255, 255, 0.1);
+    box-shadow: 
+      0 0 10px #00ffff,
+      0 0 20px #00ffff;
+    text-shadow: 
+      0 0 5px #00ffff,
+      0 0 15px #00ffff;
+    transform: translateY(-2px);
+  }
+  
+  /* Mensaje cuando no hay préstamos */
+  .no-prestamos {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 50px;
+    color: white;
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff,
+      0 0 6px #00ffff;
+    padding: 20px;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+  }

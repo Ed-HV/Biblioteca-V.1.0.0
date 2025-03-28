@@ -1,79 +1,108 @@
 body {
   background-color: black;
-  font-color: #00ffff; /* Cyan */
+  color: white;
   font-family: 'Arial', sans-serif;
   padding: 20px;
-  bottom:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
 h2 {
-  color: #00ffff;
+  color: black;
   text-align: center;
   margin-bottom: 30px;
   font-size: 2.5em;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  text-shadow: 
+    0 0 2px #00ffff,
+    0 0 4px #00ffff,
+    0 0 6px #00ffff,
+    0 0 10px #00ffff;
 }
 
 .tabla-neon {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 1.1em;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  border: 2px solid #00ffff;
+  border: 1px solid #00ffff;
 }
 
 .tabla-neon th {
-  background-color: rgba(0, 255, 255, 0.1);
-  color: #00ffff;
+  background-color: rgba(23, 210, 210, 0.56);
+  color: white;
   text-align: left;
   padding: 12px 15px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   border-bottom: 2px solid #00ffff;
+  text-shadow: 
+    0 0 1px #00ffff,
+    0 0 1px #00ffff;
 }
 
 .tabla-neon td {
+  color: white;
   padding: 12px 15px;
   border-bottom: 1px solid rgba(0, 255, 255, 0.3);
   transition: all 0.3s ease;
+  text-shadow: 
+    0 0 1px #00ffff,
+    0 0 1px #00ffff;
 }
 
 .tabla-neon tr:hover td {
   background-color: rgba(0, 255, 255, 0.1);
-  text-shadow: 0 0 5px #00ffff;
+  text-shadow: 
+    0 0 5px #00ffff,
+    0 0 10px #00ffff;
 }
 
 .tabla-neon tr:last-child td {
   border-bottom: none;
 }
 
-input[type="submit"] {
+.boton-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.boton-container input[type="submit"] {
   background-color: transparent;
-  color: #00ffff;
-  border: 2px solid #00ffff;
+  color: white;
+  border: 1px solid #00ffff;
   padding: 10px 20px;
   font-size: 1em;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 20px;
   border-radius: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-shadow: 
+    0 0 2px #00ffff,
+    0 0 2px #00ffff;
 }
 
-input[type="submit"]:hover {
+.boton-container input[type="submit"]:hover {
   background-color: rgba(0, 255, 255, 0.1);
   box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-  text-shadow: 0 0 5px #00ffff;
+  text-shadow: 
+    0 0 5px #00ffff,
+    0 0 10px #00ffff;
 }
 
-/* Mensaje cuando no hay préstamos */
-body > p {
+.mensaje-vacio {
   text-align: center;
   font-size: 1.2em;
   margin-top: 50px;
-  color: #00ffff;
-  text-shadow: 0 0 5px #00ffff;
+  color: white;
+  text-shadow: 
+    0 0 2px #00ffff,
+    0 0 4px #00ffff,
+    0 0 6px #00ffff;
 }

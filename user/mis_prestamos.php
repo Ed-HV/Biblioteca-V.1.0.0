@@ -57,6 +57,7 @@ $stmt->close();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Préstamos</title>
     <link rel="stylesheet" href="assets/css/prestamoStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -65,63 +66,63 @@ $stmt->close();
 
 <h2>Mis Préstamos</h2>
 
-<?php
-if (!empty($mensaje)) {
-    echo "<script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    title: 'Información',
-                    text: '$mensaje',
-                    icon: 'info',
-                    confirmButtonText: 'OK'
-                }).then(() => {
-                    window.location = 'mis_prestamos.php';
-                });
+<?php if (!empty($mensaje)): ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: 'Información',
+                text: '<?= addslashes($mensaje) ?>',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                background: '#000',
+                color: '#fff',
+                confirmButtonColor: '#00ffff'
+            }).then(() => {
+                window.location = 'mis_prestamos.php';
             });
-          </script>";
-}
-?>
+        });
+    </script>
+<?php endif; ?>
 
-<?php
-if ($result->num_rows > 0) {
-    echo "<table border='1'>
+<?php if ($result->num_rows > 0): ?>
+    <table>
+        <tr>
+            <th>ID Préstamo</th>
+            <th>Título</th>
+            <th>Fecha Préstamo</th>
+            <th>Fecha Devolución</th>
+            <th>Renovaciones</th>
+            <th>Estado</th>
+            <th>Días de Retraso</th>
+            <th>Multa</th>
+            <th>Deposito</th>
+            <th>Acción</th>
+        </tr>
+        <?php while ($prestamo = $result->fetch_assoc()): ?>
+            <?php 
+                $multa_mostrar = ($prestamo['estado_multa'] == 'Pagada') ? 'Pagada' : 
+                                ($prestamo['multa_real'] > 0 ? "$" . $prestamo['multa_real'] : 'Ninguna');
+            ?>
             <tr>
-                <th>ID Préstamo</th>
-                <th>Título</th>
-                <th>Fecha Préstamo</th>
-                <th>Fecha Devolución</th>
-                <th>Renovaciones</th>
-                <th>Estado</th>
-                <th>Días de Retraso</th>
-                <th>Multa</th>
-                <th>Deposito</th>
-                <th>Acción</th>
-            </tr>";
-    while ($prestamo = $result->fetch_assoc()) {
-        // Mostrar "Pagada" si la multa ya fue pagada, de lo contrario, mostrar el monto o "Ninguna"
-        $multa_mostrar = ($prestamo['estado_multa'] == 'Pagada') ? 'Pagada' : ($prestamo['multa_real'] > 0 ? "$" . $prestamo['multa_real'] : 'Ninguna');
+                <td><?= $prestamo['id_prestamo'] ?></td>
+                <td><?= $prestamo['titulo'] ?></td>
+                <td><?= $prestamo['fecha_prestamo'] ?></td>
+                <td><?= $prestamo['fecha_devolucion'] ?></td>
+                <td><?= $prestamo['renovaciones'] ?></td>
+                <td><?= $prestamo['estado_prestamo'] ?></td>
+                <td><?= $prestamo['dias_retraso'] ?></td>
+                <td><?= $multa_mostrar ?></td>
+                <td><?= $prestamo['deposito'] ?></td>
+                <td><a href="renovar_prestamo.php?id_prestamo=<?= $prestamo['id_prestamo'] ?>">Renovar</a></td>
+            </tr>
+        <?php endwhile; ?>
+    </table>
+<?php else: ?>
+    <p class="no-prestamos">No tienes préstamos activos.</p>
+<?php endif; ?>
 
-        echo "<tr>
-                <td>" . $prestamo['id_prestamo'] . "</td>
-                <td>" . $prestamo['titulo'] . "</td>
-                <td>" . $prestamo['fecha_prestamo'] . "</td>
-                <td>" . $prestamo['fecha_devolucion'] . "</td>
-                <td>" . $prestamo['renovaciones'] . "</td>
-                <td>" . $prestamo['estado_prestamo'] . "</td>
-                <td>" . $prestamo['dias_retraso'] . "</td>
-                <td>" . $multa_mostrar . "</td>
-                <td>" . $prestamo['deposito'] . "</td>
-                <td><a href='renovar_prestamo.php?id_prestamo=" . $prestamo['id_prestamo'] . "'>Renovar</a></td>
-              </tr>";
-    }
-    echo "</table>";
-} else {
-    echo "<p>No tienes préstamos activos.</p>";
-}
-?>
-
-<div>
-    <a href="dashboard.php" class="btn btn-success w-100">Dashboard</a>
+<div class="btn-container">
+    <a href="dashboard.php" class="btn-dashboard">Volver al Dashboard</a>
 </div>
 
 </body>
