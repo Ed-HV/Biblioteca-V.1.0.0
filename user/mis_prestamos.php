@@ -39,7 +39,8 @@ if (isset($_GET['id_libro'])) {
 $sql = "SELECT p.id_prestamo, l.titulo, p.fecha_prestamo, p.fecha_devolucion, 
                p.renovaciones, p.estado_prestamo, p.deposito, p.multa,
                GREATEST(0, DATEDIFF(CURDATE(), p.fecha_devolucion)) AS dias_retraso,
-               IFNULL(m.monto, 0) AS multa_real
+               IFNULL(m.monto, 0) AS multa_real,
+               IFNULL(m.estado, 'Ninguna') AS estado_multa
         FROM prestamos p
         JOIN libros l ON p.id_libro = l.id_libro
         LEFT JOIN multas m ON p.id_prestamo = m.id_prestamo
@@ -97,6 +98,9 @@ if ($result->num_rows > 0) {
                 <th>Acción</th>
             </tr>";
     while ($prestamo = $result->fetch_assoc()) {
+        // Mostrar "Pagada" si la multa ya fue pagada, de lo contrario, mostrar el monto o "Ninguna"
+        $multa_mostrar = ($prestamo['estado_multa'] == 'Pagada') ? 'Pagada' : ($prestamo['multa_real'] > 0 ? "$" . $prestamo['multa_real'] : 'Ninguna');
+
         echo "<tr>
                 <td>" . $prestamo['id_prestamo'] . "</td>
                 <td>" . $prestamo['titulo'] . "</td>
@@ -105,7 +109,7 @@ if ($result->num_rows > 0) {
                 <td>" . $prestamo['renovaciones'] . "</td>
                 <td>" . $prestamo['estado_prestamo'] . "</td>
                 <td>" . $prestamo['dias_retraso'] . "</td>
-                <td>" . ($prestamo['multa_real'] > 0 ? "$" . $prestamo['multa_real'] : "Ninguna") . "</td>
+                <td>" . $multa_mostrar . "</td>
                 <td>" . $prestamo['deposito'] . "</td>
                 <td><a href='renovar_prestamo.php?id_prestamo=" . $prestamo['id_prestamo'] . "'>Renovar</a></td>
               </tr>";

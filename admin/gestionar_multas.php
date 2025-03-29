@@ -7,16 +7,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Llamar al procedimiento almacenado para pagar la multa
         $sql = "CALL pagar_multa(?)";
-        $stmt = $conn->prepare($sql);
-        
-        if ($stmt) {
+        if ($stmt = $conn->prepare($sql)) {
+            // Vincular el parámetro
             $stmt->bind_param("i", $id_multa);
+
+            // Ejecutar la consulta
             if ($stmt->execute()) {
                 // Obtener el mensaje de salida del procedimiento
                 $result = $stmt->get_result();
-                $row = $result->fetch_assoc();
-                $mensaje = $row['mensaje'] ?? 'Proceso completado.';
+                if ($result) {
+                    $row = $result->fetch_assoc();
+                    $mensaje = $row['mensaje'] ?? 'Proceso completado.';
+                } else {
+                    $mensaje = 'Error: No se obtuvo el mensaje de la base de datos.';
+                }
 
+                // Usar SweetAlert para mostrar el mensaje
                 echo "<script>
                         document.addEventListener('DOMContentLoaded', function() {
                             Swal.fire({
@@ -25,22 +31,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 icon: 'info',
                                 confirmButtonText: 'OK'
                             }).then(() => {
-                                window.location = 'gestionar_multas.php';
+                                window.location = 'dashboard.php?modulo=gestionar_multas'; // Redirigir después de pagar
                             });
                         });
                       </script>";
             } else {
+                // Error al ejecutar la consulta
                 echo "<script>
                         Swal.fire('Error', 'No se pudo ejecutar la consulta.', 'error');
                       </script>";
             }
+
+            // Cerrar la consulta
             $stmt->close();
         } else {
+            // Error en la preparación de la consulta
             echo "<script>
                     Swal.fire('Error', 'Error en la preparación de la consulta.', 'error');
                   </script>";
         }
     } else {
+        // ID de multa no válido
         echo "<script>
                 Swal.fire('Advertencia', 'ID de multa inválido.', 'warning');
               </script>";
