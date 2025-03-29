@@ -37,7 +37,7 @@
                 <a href="dashboard.php?modulo=reporte_renovaciones" class="list-group-item list-group-item-action bg-dark text-white">Reportes Renovaciones</a>
                 <a href="dashboard.php?modulo=reporte_adeudos" class="list-group-item list-group-item-action bg-dark text-white">Adeudos</a>
                 <a href="dashboard.php?modulo=usuarios" class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
-                <a href="dashboard.php?modulo=notificaciones" class="list-group-item list-group-item-action bg-dark text-white">Notificaciones</a>
+              <!--  <a href="dashboard.php?modulo=notificaciones" class="list-group-item list-group-item-action bg-dark text-white">Notificaciones</a> -->
             </div>
         </div>
         
