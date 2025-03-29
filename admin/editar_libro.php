@@ -1,12 +1,5 @@
 <?php
 include 'conexion.php';
-session_start();
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: login.php');
-    exit();
-}
 
 $id_libro = null;
 $libro = null;
@@ -108,7 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['buscar_libro'])) {
         <label for="estado" class="form-label">Estado</label>
         <select name="estado" class="form-control" required>
             <option value="Disponible" <?php if ($libro['estado'] == 'Disponible') echo 'selected'; ?>>Disponible</option>
-            <option value="Prestado" <?php if ($libro['estado'] == 'Prestado') echo 'selected'; ?>>Prestado</option>
             <option value="No Disponible" <?php if ($libro['estado'] == 'No Disponible') echo 'selected'; ?>>No Disponible</option>
         </select>
     </div>

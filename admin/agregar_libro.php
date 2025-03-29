@@ -9,7 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $editorial = $conn->real_escape_string($_POST['editorial']);
     $anio_publicacion = $conn->real_escape_string($_POST['anio_publicacion']);
     $edicion = $conn->real_escape_string($_POST['edicion']);
+    $estado = $conn->real_escape_string($_POST['estado']);
     $disponibilidad = $conn->real_escape_string($_POST['disponibilidad']);
+    $fecha_disponible = $conn->real_escape_string($_POST['fecha_disponible']);
 
     // Verificar si el ISBN ya existe
     $check_sql = "SELECT * FROM libros WHERE isbn = '$isbn'";
@@ -22,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </script>";
     } else {
         // Insertar el nuevo libro si el ISBN no existe
-        $sql = "INSERT INTO libros (isbn, codigo_barras, titulo, autor, editorial, año_publicacion, edicion, disponibilidad) 
-                VALUES ('$isbn', '$codigo_barras', '$titulo', '$autor', '$editorial', '$anio_publicacion', '$edicion', '$disponibilidad')";
+        $sql = "INSERT INTO libros (isbn, codigo_barras, titulo, autor, editorial, año_publicacion, edicion, estado, disponibilidad, fecha_disponible) 
+                VALUES ('$isbn', '$codigo_barras', '$titulo', '$autor', '$editorial', '$anio_publicacion', '$edicion', '$estado','$disponibilidad','$fecha_disponible')";
 
         if ($conn->query($sql) === TRUE) {
             echo "<script>
@@ -71,8 +73,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="text" name="edicion" class="form-control" required>
     </div>
     <div class="mb-3">
+        <label for="estado" class="form-label">Estado</label>
+        <select name="estado" class="form-control" required>
+                <option value="">Selecciona El Estado</option>
+                <option value="No Disponible">No Disponible</option>
+                <option value="Disponible">Disponible</option>
+        </select>
+    </div>
+    
+    <div class="mb-3">
         <label for="disponibilidad" class="form-label">Cantidad de Libros</label>
-        <input type="text" name="disponibilidad" class="form-control" required>
+        <input type="num" name="disponibilidad" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="fecha_disponible" class="form-label">Fecha Disponible</label>
+        <input type="date" name="fecha_disponible" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary">Agregar Libro</button>
 </form>

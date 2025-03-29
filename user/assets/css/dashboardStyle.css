@@ -82,9 +82,10 @@ body {
 /* Título del contenido principal */
 h3 {
     color: aqua;
-    font-size: 2.5rem; /* Título más grande */
+    font-size: 40px; /* Título más grande */
     margin-bottom: 25px; /* Más margen inferior */
     text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5); /* Sombra en el texto */
+    font-family:Arial,sans;
 }
 
 /* Párrafo del contenido principal */
@@ -102,3 +103,17 @@ p {
     border-radius: 15px; /* Bordes más redondeados */
     background-color: rgba(0, 0, 0, 0.8);
     box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.7); /* Sombra más pronunciada */
+}
+#image-container{
+    position:background;
+    width: 30px;
+    height: 30px; /* Esto hace que la imagen ocupe toda la altura de la ventana */
+    overflow: hidden; /* Esto evitará que la imagen se desborde */
+}
+#image-container img{
+    object-fit: cover; 
+    max-width: 30%; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    border-radius: 20px; /
+    
+}

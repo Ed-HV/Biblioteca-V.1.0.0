@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     echo "<table class='tabla-neon'>";
 
-    /*echo "<table border='1'><tr><th>Título</th><th>Fecha Préstamo</th><th>Fecha Devolución</th><th>Estado</th></tr>";*/
+    echo "<table border='1'><tr><th>Título</th><th>Fecha Préstamo</th><th>Fecha Devolución</th><th>Estado</th></tr>";
     while ($prestamo = $result->fetch_assoc()) {
         echo "<tr>
                 <td>" . $prestamo['titulo'] . "</td>
@@ -44,3 +44,8 @@ if ($result->num_rows > 0) {
     <link rel="stylesheet" href="assets\css\historialStyle.css">
 </head>
 
+<form method="POST" action="dashboard.php">
+<div>
+<input type="submit" value="DASHBOARD">
+</div>
+</form>

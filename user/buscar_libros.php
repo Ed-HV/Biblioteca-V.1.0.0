@@ -45,6 +45,10 @@ if ($result->num_rows > 0) {
 }
 
 ?>
+
 <form method="POST" action="dashboard.php">
-<button type="submit" class="btn btn-success w-100">Dashboard</button>    
+<div>
+<input type="submit" value="DASHBOARD">
+</div>
 </form>
+</html>

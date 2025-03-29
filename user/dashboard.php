@@ -31,12 +31,13 @@ $nombre_usuario = $_SESSION['nombre'];
         <div class="bg-dark border-end" id="sidebar-wrapper">
             <div class="sidebar-heading text-white p-3">Universidad Tecnológica NovaHorizonte</div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('buscar_libros.php')">Buscar Libros</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('mis_prestamos.php')">Mis Préstamos</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('renovar_prestamo.php')">Renovar Préstamos</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('historial.php')">Historial</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('notificaciones.php')">Notificaciones</a>
+                <a href="buscar_libros.php" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('buscar_libros.php')">Buscar Libros</a>
+                <a href="mis_prestamos.php" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('mis_prestamos.php')">Mis Préstamos</a>
+                <a href="renovar_prestamo.php" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('renovar_prestamo.php')">Renovar Préstamos</a>
+                <a href="historial.php" class="list-group-item list-group-item-action bg-dark text-white" onclick="loadPage('historial.php')">Historial</a>
+                <a href="notificaciones.php" class="list-group-item list-group-item-action bg-dark text-white">Notificaciones</a>
                 <a href="logout.php" class="list-group-item list-group-item-action bg-danger text-white">Cerrar Sesión</a>
+               
             </div>
         </div>
 
@@ -44,7 +45,9 @@ $nombre_usuario = $_SESSION['nombre'];
            <div id="page-content-wrapper" class="p-4" >
             <h3> ¡Bienvenido, <?php echo htmlspecialchars($nombre_usuario); ?>! 🎉</h3>
             <p>Selecciona una opción del menú para comenzar.</p>
-            <div id="content-area"></div>
+            <div id="image-container">
+                <img src="assets/img/R.jpeg">
+            </div>    
         </div>
 
     </div>

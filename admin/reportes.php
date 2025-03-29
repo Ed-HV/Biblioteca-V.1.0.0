@@ -10,9 +10,9 @@ $sql = "SELECT p.id_prestamo, u.nombre AS usuario, l.titulo AS libro, p.fecha_pr
 
 $result = $conn->query($sql);
 
-echo "<h2>Libros Prestados</h2>";
-if ($result->num_rows > 0) {
-    echo "<table border='1'><tr><th>ID Préstamo</th><th>Usuario</th><th>Libro</th><th>Fecha Préstamo</th><th>Fecha Devolución</th></tr>";
+echo "<h2>Libros Prestados Actualmente </h2>";
+if ($result->num_rows > 1) {
+    echo "<table border='1'><tr><th>ID Préstamo</th><th>Usuario</th><br><th>Libro</th><br><th>Fecha Préstamo</th><br><th>Fecha Devolución</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr><td>" . $row['id_prestamo'] . "</td><td>" . $row['usuario'] . "</td><td>" . $row['libro'] . "</td><td>" . $row['fecha_prestamo'] . "</td><td>" . $row['fecha_devolucion'] . "</td></tr>";
     }

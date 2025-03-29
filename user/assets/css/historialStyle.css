@@ -1,69 +1,79 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: #0c0c0c;
-    color: #333;
+  background-color: black;
+  font-color: #00ffff; /* Cyan */
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  bottom:center;
 }
-/* Encabezado */
+
 h2 {
-    color: #0075db;
-    margin-bottom: 20px;
+  color: #00ffff;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
 }
-/* Tabla de historial de préstamos */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #070707;
-    margin-top: 20px;
+
+.tabla-neon {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.1em;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  border: 2px solid #00ffff;
 }
-table, th, td {
-    border: 1px solid #121111;
+
+.tabla-neon th {
+  background-color: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  text-align: left;
+  padding: 12px 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #00ffff;
 }
-th, td {
-    padding: 12px;
-    text-align: left;
+
+.tabla-neon td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
 }
-th {
-    background: #0f0f0f;
+
+.tabla-neon tr:hover td {
+  background-color: rgba(0, 255, 255, 0.1);
+  text-shadow: 0 0 5px #00ffff;
 }
-tr:hover {
-    background: #0a0a0a;
+
+.tabla-neon tr:last-child td {
+  border-bottom: none;
 }
-/* Mensaje cuando no hay datos */
-p {
-    font-size: 16px;
+
+input[type="submit"] {
+  background-color: transparent;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-/* Estilo para las tablas */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    font-family: 'Arial', sans-serif;
-    background-color: #141414; /* Fondo oscuro para resaltar colores neón */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para la tabla */
-  }
-  
-  table th, table td {
-    border: 1px solid #00ffcc; /* Borde neón (verde menta) */
-    padding: 12px 15px;
-    text-align: center;
-    color: #ffffff; /* Texto blanco */
-  }
-  
-  table th {
-    background-color: #00ffcc; /* Cabecera en verde neón */
-    color: #141414; /* Texto oscuro en cabecera para contraste */
-  }
-  
-  table tr:nth-child(even) {
-    background-color: #1f1f1f; /* Color alterno para filas */
-  }
-  
-  table tr:hover {
-    background-color: #333333; /* Resaltar fila al pasar el mouse */
-    box-shadow: 0 0 10px #00ffcc; /* Efecto neón al hover */
-  }
-  
+
+input[type="submit"]:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+/* Mensaje cuando no hay préstamos */
+body > p {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 50px;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}

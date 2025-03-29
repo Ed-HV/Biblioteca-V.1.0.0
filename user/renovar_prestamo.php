@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_prestamo'])) {
                 // Calcular la nueva fecha de devolución para mostrarla al usuario
                 $nueva_fecha = date('Y-m-d', strtotime($prestamo['fecha_devolucion'] . ' +4 days'));
                 // Mostrar mensaje emergente y mensaje en la página
-                echo "<script>alert('Préstamo renovado exitosamente. Nueva fecha de devolución: $nueva_fecha');</script>";
+            //    echo "<script>alert('Préstamo renovado exitosamente. Nueva fecha de devolución: $nueva_fecha');</script>";
                 echo "<p class='text-success'>Préstamo renovado exitosamente. Nueva fecha de devolución: $nueva_fecha</p>";
             } else {
                 echo "<p class='text-danger'>Error al renovar préstamo: " . $conn->error . "</p>";
